@@ -1,0 +1,17 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+@using ChrisADXTestbed.Web.Models
+
+<PageTitle>Counters</PageTitle>
+
+<h1>Counters</h1>
+
+<p role="status">Current count: @count.CurrentCount</p>
+
+<button class="btn btn-primary" @onclick="@Increment">Click me</button>
+
+@code {
+    private Counter count = new Counter();
+
+    void Increment() => count.IncrementCount();
+}
