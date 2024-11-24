@@ -49,3 +49,6 @@ run-docker:
 	fi
 	@echo "${GREEN}Container is up and running!${NC}"
 	@curl -X POST -H "Content-Type: application/json" -d '{"csl":".show cluster"}' http://localhost:8080/v1/rest/mgmt
+
+ingest-data:
+	scripts/ingest-data.sh data/StormEvents.csv

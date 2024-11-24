@@ -4,6 +4,10 @@ using ChrisADXTestbed.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load configuration from appSettings.json
+builder.Configuration.AddJsonFile("appSettings.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appSettings.{builder.Environment.EnvironmentName}.json", optional: true);
+
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
 
@@ -14,11 +18,11 @@ builder.Services.AddRazorComponents()
 builder.Services.AddOutputCache();
 
 builder.Services.AddHttpClient<WeatherApiClient>(client =>
-    {
-        // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
-        // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
-        client.BaseAddress = new("https+http://apiservice");
-    });
+{
+    // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
+    // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
+    client.BaseAddress = new("https+http://apiservice");
+});
 
 builder.Services.AddBlazorFluentUI();
 
