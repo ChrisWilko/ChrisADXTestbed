@@ -22,7 +22,8 @@
 There are two ways in which you can set up the project.
 
 ### Before
-ensure you are logged into azure through the CLI and have a token authenticated on that terminal session.
+Ensure you are logged into azure through the CLI and have a token authenticated on that terminal session.  
+Ensure you have the [Kusto CLI](https://learn.microsoft.com/en-us/azure/data-explorer/azure-powershell#prerequisites) installed.
 
 ### Setup Option 1: Docker local image (WIP)
 1. run `make setup-docker` - This will set up the ADX docker image for you. (can be slow to download)
@@ -30,9 +31,9 @@ ensure you are logged into azure through the CLI and have a token authenticated 
 
 ### Setup Option 2: Azure Free Cluster (WIP)
 
-1. Follow this [link](https://learn.microsoft.com/en-us/azure/data-explorer/start-for-free-web-ui) and set up a free cluster for your given URLs and fill in the appSettings.json accordingly with your urls.
+1. Follow this [link](https://learn.microsoft.com/en-us/azure/data-explorer/start-for-free-web-ui) and set up a free cluster for your given URLs and fill in the appSettings.json accordingly with your URLs.
 
 ### Setup Both continued
 
-1. run `make injset-data` - Will ingest the data directly in to the free adx db for you.
+1. run `make ingest-data` - Will ingest the data directly in to the free adx db for you.
 2. run `make dotnet-start` - Will start all the dotnet projects needed to run the project, and you'll have a frontend & backend ready to connect to ADX.
